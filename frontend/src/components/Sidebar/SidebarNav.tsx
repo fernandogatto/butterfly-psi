@@ -1,4 +1,4 @@
-import { Flex, IconButton } from '@chakra-ui/react'
+import { Flex, IconButton, Tooltip } from '@chakra-ui/react'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { HomeIcon, CalendarIcon, Cog6ToothIcon, UsersIcon } from '@heroicons/react/24/outline'
@@ -18,7 +18,7 @@ interface MenuItemProps {
 
 const menuItems: Array<MenuItemProps> = [
   { name: 'Início', icon: HomeIcon, link: '/dashboard' },
-  { name: 'Pacientes', icon: UsersIcon, link: '/#' },
+  { name: 'Pacientes', icon: UsersIcon, link: '/pacients' },
   { name: 'Agenda', icon: CalendarIcon, link: '/#' },
 ]
 
@@ -39,23 +39,25 @@ export default function SidebarNav() {
     >
       <Logo />
 
-      <IconButton
-        aria-label={navSize === 'small' ? 'Abrir menu' : 'Recolher menu'}
-        variant="outline"
-        position="absolute"
-        top="40px"
-        right="-10px"
-        bg="white"
-        isRound={true}
-        size="xs"
-        icon={navSize === 'small' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-        onClick={() => {
-          if (navSize === 'small')
-            changeNavSize('large')
-          else
-            changeNavSize('small')
-        }}
-      />
+      <Tooltip label={navSize === 'small' ? 'Abrir menu' : 'Recolher menu'}>
+        <IconButton
+          aria-label={navSize === 'small' ? 'Abrir menu' : 'Recolher menu'}
+          variant="outline"
+          position="absolute"
+          top="40px"
+          right="-10px"
+          bg="white"
+          isRound={true}
+          size="xs"
+          icon={navSize === 'small' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          onClick={() => {
+            if (navSize === 'small')
+              changeNavSize('large')
+            else
+              changeNavSize('small')
+          }}
+        />
+      </Tooltip>
 
       <NavSection title="Menu">
         {menuItems.map(item => (

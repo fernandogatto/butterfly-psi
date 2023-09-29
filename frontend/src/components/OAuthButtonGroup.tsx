@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Flex, Stack, Text, VisuallyHidden } from '@chakra-ui/react'
+import { Button, Stack, Text, VisuallyHidden } from '@chakra-ui/react'
 import { GoogleIcon } from './ProviderIcons'
 
 const providers = [
