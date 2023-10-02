@@ -8,14 +8,14 @@ import { useRef, useState } from "react";
 
 // Imperativa vs Declarativa
 
-interface SearchBoxProps {
+interface SearchInputProps {
   placeholder: string;
 }
 
-export function SearchBox({ placeholder }: SearchBoxProps) {
+export default function SearchInput({ placeholder }: SearchInputProps) {
   // const [search, setSearch] = useState('')
 
-  const searchInputRef = useRef<HTMLInputElement>(null)
+  // const searchInputRef = useRef<HTMLInputElement>(null)
 
   // searchInputRef.current.focus() (Imperativo)
 

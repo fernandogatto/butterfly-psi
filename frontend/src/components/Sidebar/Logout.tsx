@@ -12,7 +12,7 @@ export default function Logout() {
       p="5px 10px"
       variant="ghost"
       leftIcon={<PowerIcon height={16} />}
-      justifyContent="flex-start"
+      justifyContent={navSize === "small" ? "center" : "flex-start"}
       w="100%"
     >
       {navSize === 'large' && (

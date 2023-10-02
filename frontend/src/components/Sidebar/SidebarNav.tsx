@@ -19,11 +19,11 @@ interface MenuItemProps {
 const menuItems: Array<MenuItemProps> = [
   { name: 'Início', icon: HomeIcon, link: '/dashboard' },
   { name: 'Pacientes', icon: UsersIcon, link: '/pacients' },
-  { name: 'Agenda', icon: CalendarIcon, link: '/#' },
+  // { name: 'Agenda', icon: CalendarIcon, link: '/#' },
 ]
 
 const systemItems: Array<MenuItemProps> = [
-  { name: 'Configurações', icon: Cog6ToothIcon, link: '/#' },
+  // { name: 'Configurações', icon: Cog6ToothIcon, link: '/#' },
 ]
 
 export default function SidebarNav() {

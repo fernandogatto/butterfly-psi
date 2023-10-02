@@ -1,11 +1,36 @@
 import NextLink from "next/link";
-import { Box, Button, Checkbox, Flex, Heading, Icon, IconButton, Stack, Table, TableCaption, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tooltip, Tr } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  Heading,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Stack,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Text,
+  Tfoot,
+  Th,
+  Thead,
+  Tooltip,
+  Tr,
+} from "@chakra-ui/react";
 
 import { EllipsisVerticalIcon, FunnelIcon, PlusIcon } from "@heroicons/react/24/outline";
 
+import PrivateContainer from "@/components/PrivateContainer";
+import PrivateBox from "@/components/PrivateBox";
 import Sidebar from "@/components/Sidebar";
+import Searchbox from "@/components/Searchbox";
 import { Pagination } from "@/components/Pagination";
-import { SearchBox } from "@/components/Form/Searchbox";
 
 const pacients = [
   {
@@ -42,15 +67,10 @@ const pacients = [
 
 export default function PacientsList() {
   return (
-    <Flex w="100%" height="100vh" overflow="hidden">
+    <PrivateContainer>
       <Sidebar />
 
-      <Box
-        flex="1"
-        p={{ base: "15px", md: "30px", lg: "60px" }}
-        mx="auto"
-        overflow="auto"
-      >
+      <PrivateBox>
         <Heading
           fontSize={{ base: "24px", md: "28px", lg: "36px" }}
           mb={{ base: "15px", lg: "30px" }}
@@ -58,37 +78,7 @@ export default function PacientsList() {
           Pacientes
         </Heading>
 
-        <Stack
-          mb="8"
-          direction="row"
-          justify="space-between"
-          align="center"
-          spacing="3"
-        >
-          <SearchBox placeholder="Buscar por nome" />
-
-          <Button
-            variant="outline"
-            size="md"
-            fontSize="md"
-            colorScheme="blue"
-            leftIcon={<FunnelIcon height={16} />}
-          >
-            Filtrar
-          </Button>
-
-          <NextLink href="/pacients/create" passHref>
-            <Button
-              as="a"
-              size="md"
-              fontSize="md"
-              colorScheme="blue"
-              leftIcon={<PlusIcon height={16} />}
-            >
-              Criar novo
-            </Button>
-          </NextLink>
-        </Stack>
+        <Searchbox />
 
         <TableContainer>
           <Table variant="simple" colorScheme="gray">
@@ -97,9 +87,9 @@ export default function PacientsList() {
                 <Th px={["2", "2", "4"]} color="gray.300" width="8">
                   <Checkbox colorScheme="blue" />
                 </Th>
-                <Th>Nome</Th>
-                <Th width="15">Status</Th>
-                <Th>E-mail</Th>
+                <Th color="gray.500">Nome</Th>
+                <Th color="gray.500" width="15">Status</Th>
+                <Th color="gray.500">E-mail</Th>
                 <Th>Ações</Th>
               </Tr>
             </Thead>
@@ -110,12 +100,7 @@ export default function PacientsList() {
                     <Checkbox colorScheme="blue" />
                   </Td>
                   <Td>
-                    <Flex align="center">
-                      {/* <Avatar name={pacient.name} size="md" /> */}
-                      <Text ml={3}>
-                        {pacient.name}
-                      </Text>
-                    </Flex>
+                    {pacient.name}
                   </Td>
                   <Td>
                     <Box
@@ -150,7 +135,7 @@ export default function PacientsList() {
             onPageChange={() => {}}
           />
         </TableContainer>
-      </Box>
-    </Flex>
+      </PrivateBox>
+    </PrivateContainer>
   )
 }

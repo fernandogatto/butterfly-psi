@@ -40,7 +40,10 @@ export default function NavItem({
             display="block"
           >
             <MenuButton w="100%">
-              <Flex align="center">
+              <Flex
+                align="center"
+                justify={navSize === "small" ? "center" : "flex-start"}
+              >
                 <Icon as={icon} fontSize="md" color={"gray.700"} />
                 <Text
                   ml={3}

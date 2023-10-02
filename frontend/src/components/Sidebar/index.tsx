@@ -19,6 +19,7 @@ export default function Sidebar() {
       w={navSize === "small" ? "75px" : "200px"}
       flexDir="column"
       justifyContent="space-between"
+      textAlign={navSize === "small" ? "center" : "left"}
     >
       <SidebarNav />
 
